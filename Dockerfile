@@ -9,3 +9,4 @@ RUN docker-php-ext-install mysqli
 
 # Открываем порт 80 для доступа к веб-серверу
 EXPOSE 80
+CMD ["apache2-foreground"]
