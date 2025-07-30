@@ -1,0 +1,66 @@
+/* Общие стили */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+}
+
+/* Блок для формы */
+.form, .result {
+    width: 80%;
+    margin: 20px auto;
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Заголовок формы */
+.form__title, .result__title {
+    text-align: center;
+    color: #333;
+}
+
+/* Кнопка и поля ввода */
+.form__button {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.form__input {
+    margin-right: 10px;
+}
+
+.form__select {
+    margin-bottom: 20px;
+}
+
+.form__label {
+    display: block;
+    margin: 5px 0;
+}
+
+/* Таблица */
+.result__table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.result__table th, .result__table td {
+    padding: 8px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+.result__error {
+    color: red;
+    text-align: center;
+}

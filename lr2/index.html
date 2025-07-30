@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="css/style.css">
+  <title>Координаты курсора</title>
+</head>
+<body>
+<header></header>
+<main class="main">
+  <div class="container-xy">
+    <div id="coordinates">
+        <h2>Координаты: x = 0, y = 0</h2>
+    </div>
+    <div id="square"></div>
+  </div>
+<!-- block 2 -->
+    <div class="container">
+        <!-- Левая колонка -->
+        <div class="list-container">
+          <ul id="left-list">
+            <li><input type="checkbox" value="Андриенко А.Б." id="item1"> <label for="item1">Андриенко А.Б.</label></li>
+            <li><input type="checkbox" value="Борисенко В.Г." id="item2"> <label for="item2">Борисенко В.Г.</label></li>
+            <li><input type="checkbox" value="Василенко Д.Е." id="item3"> <label for="item3">Василенко Д.Е.</label></li>
+            <li><input type="checkbox" value="Гавриленко К.Л." id="item4"> <label for="item4">Гавриленко К.Л.</label></li>
+            <li><input type="checkbox" value="Дмитренко М.Н." id="item5"> <label for="item5">Дмитренко М.Н.</label></li>
+            <li><input type="checkbox" value="Клименко В.М." id="item6"> <label for="item6">Клименко В.М.</label></li>
+          </ul>
+        </div>
+    
+        <!-- Кнопки -->
+        <div class="button-container">
+          <button class="button" id="move-right">>></button>
+          <button class="button" id="move-left"><<</button>
+        </div>
+    
+        <!-- Правая колонка -->
+        <div class="list-container">
+          <ul id="right-list"></ul>
+        </div>
+      </div>
+
+      <div class="grid-container">
+        <!-- Поле ввода -->
+        <textarea id="grid-binary-input" placeholder="Введите 0 и 1..." rows="5" cols="10"></textarea>
+    
+        <!-- Генерируемый блок -->
+        <div id="dynamic-grid"></div>
+      </div>
+</main>
+<footer></footer>
+  
+  <script src="script.js"></script>
+</body>
+</html>
