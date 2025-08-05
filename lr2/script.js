@@ -1,21 +1,15 @@
-// Получаем элементы
 const square = document.getElementById('square');
 const coordinates = document.getElementById('coordinates');
 
-// Добавляем обработчик события для движения мыши
 square.addEventListener('mousemove', (event) => {
-  // Получаем координаты квадрата относительно окна
   const rect = square.getBoundingClientRect();
 
-  // Вычисляем координаты курсора относительно квадрата
   const x = Math.floor(event.clientX - rect.left);
   const y = Math.floor(event.clientY - rect.top);
 
-  // Обновляем текст с координатами
   coordinates.textContent = `Координаты: x = ${x}, y = ${y}`;
 });
 
-// Сброс координат, если курсор покидает квадрат
 square.addEventListener('mouseleave', () => {
   coordinates.textContent = 'Координаты: x = 0, y = 0';
 });
@@ -26,39 +20,37 @@ const moveLeftBtn = document.getElementById('move-left');
 const leftList = document.getElementById('left-list');
 const rightList = document.getElementById('right-list');
 
-// Функция перемещения выделенных элементов
 function moveItems(fromList, toList) {
   const checkboxes = fromList.querySelectorAll('input[type="checkbox"]:checked');
 
   checkboxes.forEach(checkbox => {
-    const parentItem = checkbox.parentElement; // Родительский элемент <li>
-    checkbox.checked = false; // Снимаем отметку
-    toList.appendChild(parentItem); // Перемещаем <li> в другой список
+    const parentItem = checkbox.parentElement; 
+    checkbox.checked = false; 
+    toList.appendChild(parentItem); 
   });
 
-  // Сортируем элементы в списке, чтобы сохранить исходный порядок
+  
   sortList(toList);
 }
 
-// Функция сортировки списка
 function sortList(list) {
-  const items = Array.from(list.children); // Получаем все <li> в списке
+  const items = Array.from(list.children); 
   items.sort((a, b) => {
-    const valueA = a.querySelector('input').value; // Значение input в <li>
+    const valueA = a.querySelector('input').value; 
     const valueB = b.querySelector('input').value;
-    return valueA.localeCompare(valueB); // Сравниваем строки (алфавитный порядок)
+    return valueA.localeCompare(valueB); 
   });
 
-  // Добавляем элементы в список заново в правильном порядке
+ 
   items.forEach(item => list.appendChild(item));
 }
 
-// Событие для кнопки ">>"
+
 moveRightBtn.addEventListener('click', () => {
   moveItems(leftList, rightList);
 });
 
-// Событие для кнопки "<<"
+
 moveLeftBtn.addEventListener('click', () => {
   moveItems(rightList, leftList);
 });
@@ -70,19 +62,18 @@ const binaryInput = document.getElementById('grid-binary-input');
 const dynamicGrid = document.getElementById('dynamic-grid');
 
 binaryInput.addEventListener('input', () => {
-  const binaryData = binaryInput.value.trim(); // Убираем лишние пробелы
+  const binaryData = binaryInput.value.trim(); 
   generateGrid(binaryData);
 });
 
 function generateGrid(binaryData) {
-  dynamicGrid.innerHTML = ''; // Очищаем старую сетку
+  dynamicGrid.innerHTML = ''; 
 
-  const rows = binaryData.split('\n'); // Делим введённые данные на строки
+  const rows = binaryData.split('\n'); 
 
   rows.forEach(row => {
-    const rowLength = row.length; // Длина строки
-    dynamicGrid.style.gridTemplateColumns = `repeat(${rowLength}, 30px)`; // Устанавливаем количество колонок для текущей строки
-
+    const rowLength = row.length; 
+    dynamicGrid.style.gridTemplateColumns = `repeat(${rowLength}, 30px)`; 
     row.split('').forEach(char => {
       if (char === '1' || char === '0') {
         const square = document.createElement('div');
@@ -91,11 +82,11 @@ function generateGrid(binaryData) {
       }
     });
 
-    // Разделяем строки визуально: после каждой строки добавляем "пустую строку"
+    
     if (row !== rows[rows.length - 1]) {
       const spacer = document.createElement('div');
-      spacer.style.height = '5px'; // Разделение между строками
-      spacer.style.gridColumn = `1 / span ${rowLength}`; // Растягиваем разделитель по всей строке
+      spacer.style.height = '5px'; 
+      spacer.style.gridColumn = `1 / span ${rowLength}`; 
       dynamicGrid.appendChild(spacer);
     }
   });
